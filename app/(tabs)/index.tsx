@@ -1,14 +1,14 @@
 import { Link } from "expo-router";
-import { Button, Text, Theme, View } from "tamagui";
+import { View } from "tamagui";
+import { Button, ButtonNext } from "@/components";
 
 export default function TabOneScreen() {
   return (
     <View flex={1} alignItems="center" pt="$6">
       <Link href="/modal" asChild>
-        <Button theme="alt2" themeInverse>
-          Hello werld!
-        </Button>
+        <ButtonNext />
       </Link>
+        <Button mt="$6">Copaci</Button>
     </View>
   );
 }
