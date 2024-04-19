@@ -1,16 +1,17 @@
 import { Button as TamaguiButton } from "tamagui";
 import { GetProps, styled } from "@tamagui/core";
+import { StarFull } from "@tamagui/lucide-icons";
 
 const Button = styled(TamaguiButton, {
-  name: "TTButton",
+  name: "MyButton",
   borderWidth: 2,
-  borderBottomWidth: 6,
+  borderBottomWidth: 5,
   borderColor: "$accentColor",
   pressStyle: {
-    borderBottomWidth: 4,
-    position: "relative",
-    top: 2,
     borderColor: "$accentColor",
+    position: "relative",
+    borderBottomWidth: 4,
+    top: 1,
   },
 });
 

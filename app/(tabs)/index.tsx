@@ -1,6 +1,6 @@
 import { Link } from "expo-router";
 import { View } from "tamagui";
-import { Button, ButtonNext } from "@/components";
+import { Button, ButtonNext, JourneyStep } from "@/components";
 
 export default function TabOneScreen() {
   return (
@@ -8,7 +8,8 @@ export default function TabOneScreen() {
       <Link href="/modal" asChild>
         <ButtonNext />
       </Link>
-        <Button mt="$6">Copaci</Button>
+      <Button mt="$6">Copaci</Button>
+      <JourneyStep mt="$6" />
     </View>
   );
 }
