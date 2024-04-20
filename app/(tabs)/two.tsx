@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "expo-router";
 import { useState } from "react";
-import { Button, Image, Text, View } from "tamagui";
+import { Button, Image, Text, View, XStack } from "tamagui";
 import * as WebBrowser from "expo-web-browser";
+import { Buddy } from "@/components";
 
 export default function TabTwoScreen() {
   const [no, setNo] = useState(1);
@@ -46,6 +47,10 @@ export default function TabTwoScreen() {
           Open
         </Button>
       )}
+      <XStack gap={10}>
+        <Buddy type="cat" />
+        <Buddy type="dog" />
+      </XStack>
     </View>
   );
 }
