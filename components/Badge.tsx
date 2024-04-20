@@ -3,13 +3,17 @@ import { Image } from "tamagui";
 const getSourceByType = (type: string) => {
   switch (type) {
     case "spender":
-      return require("../assets/images/favicon.png");
-    case "donator":
-      return require("../assets/images/favicon.png");
+      return require("../assets/images/risipitor.png");
+    case "saver":
+      return require("../assets/images/econom.png");
     case "bestFriend":
-      return require("../assets/images/favicon.png");
+      return require("../assets/images/best_friend.png");
     case "goodFriend":
-      return require("../assets/images/favicon.png");
+      return require("../assets/images/good_friend.png");
+    case "wise":
+      return require("../assets/images/intelepciune.png");
+    case "investor":
+      return require("../assets/images/investitor.png");
     default:
       return require("../assets/images/favicon.png");
   }
@@ -23,7 +27,7 @@ function Badge({ type, ...rest }: BagdeProps) {
 }
 
 export type BagdeProps = {
-  type: "spender" | "donator" | "bestFriend" | "goodFriend";
+  type: "spender" | "saver" | "bestFriend" | "goodFriend" | 'wise' | 'investor';
 };
 
 export default Badge;

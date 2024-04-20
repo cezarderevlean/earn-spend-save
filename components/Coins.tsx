@@ -1,12 +1,14 @@
-import { Text, XStack } from "tamagui";
-
-import { Coins as CoinsIcon, Tag, BadgePercent } from "@tamagui/lucide-icons";
+import { Image, Text, XStack } from "tamagui";
 
 function Coins({ amount }: CoinsProps) {
   return (
     <XStack justifyContent="space-between" alignItems="center" gap={5}>
       <Text>{amount}</Text>
-      <CoinsIcon color="gold" />
+      <Image
+        width={20}
+        height={20}
+        source={require("../assets/images/coin.png")}
+      />
     </XStack>
   );
 }
