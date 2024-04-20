@@ -1,5 +1,5 @@
-import { Button, ButtonNext, Input } from "@/components";
-import { Image, Label, Text, View, YStack } from "tamagui";
+import { ButtonNext, Input } from "@/components";
+import { Image, Text, View } from "tamagui";
 
 export default function TabTwoScreen() {
   return (

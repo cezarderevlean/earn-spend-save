@@ -1,5 +1,6 @@
 export { default as Button } from "./Button";
 export { default as ButtonNext } from "./ButtonNext";
+export { default as ButtonBack } from "./ButtonBack";
 export { default as JourneyStep } from "./JourneyStep";
 export { default as Input } from "./Input";
 export { default as Buddy } from "./Buddy";

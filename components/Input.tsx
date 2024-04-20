@@ -4,9 +4,9 @@ import { GetProps, styled } from "@tamagui/core";
 const Input = styled(TamaguiInput, {
   name: "MyInput",
   borderWidth: 2,
-  borderColor: "$orange7Light",
+  borderColor: "$purple11Light",
   focusStyle: {
-    borderColor: "$accentColor",
+    borderColor: "$purple11",
   },
 });
 

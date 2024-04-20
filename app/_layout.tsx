@@ -4,8 +4,8 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { SplashScreen, Stack } from "expo-router";
-import { useColorScheme } from "react-native";
-import { TamaguiProvider, Theme } from "tamagui";
+import { Image, useColorScheme } from "react-native";
+import { TamaguiProvider, Text, Theme, View, XStack } from "tamagui";
 
 import "../tamagui-web.css";
 
@@ -16,6 +16,15 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
 
+const MyTheme = {
+  ...DarkTheme,
+  colors: {
+    ...DarkTheme.colors,
+    // background: '#222',
+    background: "#262227",
+  },
+};
+
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
@@ -23,7 +32,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "(tabs)",
+  initialRouteName: "onboarding",
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -56,11 +65,16 @@ function RootLayoutNav() {
     <QueryClientProvider client={queryClient}>
       <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
         <ThemeProvider
-          value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+          // value={DefaultTheme}
+          value={colorScheme === "dark" ? MyTheme : DefaultTheme}
         >
-          <Theme name="light_orange">
-            <Stack>
-              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Theme name="dark_purple_active">
+            <Stack
+              screenOptions={{
+                headerShown: false,
+                animation: "slide_from_right",
+              }}
+            >
               <Stack.Screen name="modal" options={{ presentation: "modal" }} />
             </Stack>
           </Theme>

@@ -9,7 +9,7 @@ const ButtonNext = styled(Button, {
   size: "$6",
   children: <MoveRight size="$4" />,
   pressStyle: {
-    borderColor: "$accentColor",
+    borderColor: "$black05",
     position: "relative",
     borderBottomWidth: 4,
     top: 2,
