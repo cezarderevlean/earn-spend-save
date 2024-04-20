@@ -1,5 +1,6 @@
 import { Tabs } from "expo-router";
-import { Coins, Tag, BadgePercent } from "@tamagui/lucide-icons";
+import { Coins as CoinsIcon, Tag, BadgePercent } from "@tamagui/lucide-icons";
+import HeaderTitle from "@/components/HeaderTitle";
 
 export default function TabLayout() {
   return (
@@ -12,7 +13,8 @@ export default function TabLayout() {
         name="index"
         options={{
           title: "Earn",
-          tabBarIcon: ({ color }) => <Coins />,
+          headerTitle: () => <HeaderTitle />,
+          tabBarIcon: ({ color }) => <CoinsIcon />,
         }}
       />
       <Tabs.Screen
