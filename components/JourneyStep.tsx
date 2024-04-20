@@ -11,10 +11,11 @@ const JourneyStep = styled(Button, {
   children: <StarFull size="$4" />,
   pressStyle: {
     borderColor: "$accentColor",
-    position: "relative",
     borderBottomWidth: 5,
-    top: 2,
   },
+  disabledStyle: {
+    backgroundColor: '$gray6Light'
+  }
 });
 
 export type ButtonNextProps = GetProps<typeof JourneyStep>;

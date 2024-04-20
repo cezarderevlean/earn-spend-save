@@ -1,12 +1,12 @@
 import { Link } from "expo-router";
 import { Image, View } from "tamagui";
-import { Button, ButtonNext, JourneyStep } from "@/components";
+import { AdventureMap, Button, ButtonNext, JourneyStep } from "@/components";
 import { StarFull } from "@tamagui/lucide-icons";
 // import image1 from "./assets/images/helping-hands.png";
 
 export default function TabOneScreen() {
   return (
-    <View flex={1} alignItems="center" pt="$6">
+    <View alignItems="center" justifyContent="center" width="100%" height="100%">
       <Link href="/modal" asChild>
         <ButtonNext />
       </Link>

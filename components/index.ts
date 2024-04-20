@@ -5,3 +5,5 @@ export { default as Input } from "./Input";
 export { default as Buddy } from "./Buddy";
 export { default as Coins } from "./Coins";
 export { default as Badge } from "./Badge";
+export { default as DashedLine } from "./DashedLine";
+export { default as AdventureMap } from "./AdventureMap";
