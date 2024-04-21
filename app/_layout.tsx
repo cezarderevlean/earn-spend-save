@@ -4,8 +4,8 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { SplashScreen, Stack } from "expo-router";
-import { Image, useColorScheme } from "react-native";
-import { TamaguiProvider, Text, Theme, View, XStack } from "tamagui";
+import { useColorScheme } from "react-native";
+import { TamaguiProvider, Theme } from "tamagui";
 
 import "../tamagui-web.css";
 
@@ -13,15 +13,17 @@ import { config } from "../tamagui.config";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { MyContextProvider } from "@/context/main";
 
 const queryClient = new QueryClient();
+
+const BACKGROUND_COLOR = "#262227";
 
 const MyTheme = {
   ...DarkTheme,
   colors: {
     ...DarkTheme.colors,
-    // background: '#222',
-    background: "#262227",
+    background: BACKGROUND_COLOR,
   },
 };
 
@@ -32,7 +34,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "onboarding",
+  initialRouteName: "index",
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -62,24 +64,29 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
-        <ThemeProvider
-          // value={DefaultTheme}
-          value={colorScheme === "dark" ? MyTheme : DefaultTheme}
-        >
-          <Theme name="dark_purple_active">
-            <Stack
-              screenOptions={{
-                headerShown: false,
-                animation: "slide_from_right",
-              }}
-            >
-              <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-            </Stack>
-          </Theme>
-        </ThemeProvider>
-      </TamaguiProvider>
-    </QueryClientProvider>
+    <MyContextProvider>
+      <QueryClientProvider client={queryClient}>
+        <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
+          <ThemeProvider
+            value={colorScheme === "dark" ? MyTheme : DefaultTheme}
+          >
+            <Theme name="dark_purple_active">
+              <Stack
+                screenOptions={{
+                  headerShown: false,
+                  animation: "slide_from_right",
+                  animationTypeForReplace: "push",
+                }}
+              >
+                <Stack.Screen
+                  name="modal"
+                  options={{ presentation: "modal" }}
+                />
+              </Stack>
+            </Theme>
+          </ThemeProvider>
+        </TamaguiProvider>
+      </QueryClientProvider>
+    </MyContextProvider>
   );
 }

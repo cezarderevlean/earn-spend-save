@@ -1,19 +1,30 @@
 // Learn more https://docs.expo.io/guides/customizing-metro
-const { getDefaultConfig } = require('expo/metro-config')
+const { getDefaultConfig } = require("expo/metro-config");
 
 /** @type {import('expo/metro-config').MetroConfig} */
-let config = getDefaultConfig(__dirname, {
-  // [Web-only]: Enables CSS support in Metro.
+const config = getDefaultConfig(__dirname, {
   isCSSEnabled: false,
-})
+});
+
+const { transformer, resolver } = config;
+
+config.transformer = {
+  ...transformer,
+  babelTransformerPath: require.resolve("react-native-svg-transformer"),
+};
+config.resolver = {
+  ...resolver,
+  assetExts: resolver.assetExts.filter((ext) => ext !== "svg"),
+  sourceExts: [...resolver.sourceExts, "svg"],
+};
 
 // 2. Enable Tamagui
-const { withTamagui } = require('@tamagui/metro-plugin')
+const { withTamagui } = require("@tamagui/metro-plugin");
 module.exports = withTamagui(config, {
-  components: ['tamagui'],
-  config: './tamagui.config.ts',
-  outputCSS: './tamagui-web.css',
-})
+  components: ["tamagui"],
+  config: "./tamagui.config.ts",
+  outputCSS: "./tamagui-web.css",
+});
 
 // REMOVE THIS (just for tamagui internal devs to work in monorepo):
 // if (process.env.IS_TAMAGUI_DEV && __dirname.includes('tamagui')) {

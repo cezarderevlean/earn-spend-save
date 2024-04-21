@@ -9,7 +9,7 @@ const getSourceByType = (type: string) => {
     case "bestFriend":
       return require("../assets/images/best_friend.png");
     case "goodFriend":
-      return require("../assets/images/good_friend.png");
+      return require("../assets/images/good_friend-2.png");
     case "wise":
       return require("../assets/images/intelepciune.png");
     case "investor":
@@ -22,7 +22,7 @@ const getSourceByType = (type: string) => {
 function Badge({ type, ...rest }: BagdeProps) {
   const source = getSourceByType(type);
   return (
-    <Image style={{ width: 150, height: 150 }} source={source} {...rest} />
+    <Image source={source} width={80} height={80} {...rest} />
   );
 }
 

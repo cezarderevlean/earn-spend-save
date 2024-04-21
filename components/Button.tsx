@@ -12,6 +12,9 @@ const Button = styled(TamaguiButton, {
     borderBottomWidth: 4,
     top: 1,
   },
+  disabledStyle: {
+    opacity: 0.5,
+  },
 });
 
 export type ButtonProps = GetProps<typeof Button>;

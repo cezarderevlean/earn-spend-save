@@ -1,6 +1,6 @@
 import { Link } from "expo-router";
 import { Image, View } from "tamagui";
-import { AdventureMap, Button, ButtonNext, JourneyStep } from "@/components";
+import { Button, ButtonNext, JourneyStep } from "@/components";
 import { StarFull } from "@tamagui/lucide-icons";
 
 export default function TabOneScreen() {

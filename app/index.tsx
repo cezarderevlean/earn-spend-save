@@ -1,21 +1,18 @@
 import { ButtonNext } from "@/components";
+import { useStore } from "@/context/main";
 import { Link } from "expo-router";
-import { Image, Text, View } from "tamagui";
+import { View } from "tamagui";
+import Logo from "../assets/images/logo.svg";
 
 export default function Welcome() {
+  const { boardingComplete } = useStore();
+
+  const nextRoute = boardingComplete ? "/(tabs)/" : "/onboarding/name";
+
   return (
     <View flex={1} alignItems="center" justifyContent="center" pb="$8">
-      <Image
-        width={200}
-        height={200}
-        source={require("../assets/images/chest.png")}
-        resizeMode="contain"
-        mt="$3"
-      />
-      <Text fontSize="$9" mb="$14">
-        Tiny Treasure
-      </Text>
-      <Link push href="/onboarding/name" asChild>
+      <Logo width={200} />
+      <Link replace href={nextRoute} asChild>
         <ButtonNext />
       </Link>
     </View>

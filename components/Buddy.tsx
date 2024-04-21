@@ -1,7 +1,7 @@
 import { Image, View } from "tamagui";
 import Button from "./Button";
 
-function Buddy({ type }: BuddyProps) {
+function Buddy({ type, ...props }: BuddyProps) {
   const source =
     type === "cat"
       ? require(`../assets/images/cat.png`)
@@ -15,6 +15,7 @@ function Buddy({ type }: BuddyProps) {
       borderBottomWidth={7}
       overflow="hidden"
       borderRadius="$8"
+      {...props}
     >
       <Image style={{ width: 130, height: 130 }} source={source} />
     </Button>
@@ -23,6 +24,6 @@ function Buddy({ type }: BuddyProps) {
 
 export type BuddyProps = {
   type: "cat" | "dog";
-};
+} & React.ComponentProps<typeof Button>;
 
 export default Buddy;

@@ -1,10 +1,13 @@
-import { Slot, Stack } from "expo-router";
-import { View } from "tamagui";
+import { Stack } from "expo-router";
 
 export default function Onboarding() {
   return (
-    <View flex={1} alignItems="center" justifyContent="center" pb="$8">
-      <Slot />
-    </View>
+    <Stack
+      screenOptions={{
+        headerShown: false,
+        animation: "slide_from_right",
+        animationTypeForReplace: "push",
+      }}
+    />
   );
 }
